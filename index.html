@@ -37,30 +37,15 @@ a{color:inherit;text-decoration:none}
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:30px 24px 0}
 .hero .wappen{display:block;height:175px;width:auto;margin:0 auto 26px;image-rendering:-webkit-optimize-contrast;opacity:0;transition:opacity 1.6s ease .5s}.hero .wappen.on{opacity:1}
 .hero h1{font-family:var(--disp);font-weight:500;font-size:1.2rem;letter-spacing:.34em;padding-left:.34em;white-space:nowrap;text-transform:uppercase;line-height:1;color:var(--ink)}
-/* painted views: each one blooms in from a different corner, like wet paint spreading */
-@property --r{syntax:'<percentage>';inherits:false;initial-value:0%}
-.gallery[hidden]{display:none!important}
-.gallery{position:relative;width:min(340px,76vw);aspect-ratio:4/5;margin-top:40px}
-.gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;--r:0%;
-  -webkit-mask-image:radial-gradient(circle at var(--x,0%) var(--y,0%),#000 var(--r),transparent calc(var(--r) + 26%));
-  mask-image:radial-gradient(circle at var(--x,0%) var(--y,0%),#000 var(--r),transparent calc(var(--r) + 26%))}
-.gallery img{transition:opacity 2s ease}
-.gallery img.on{opacity:1;--r:170%}
-.gallery img.out{opacity:0;--r:170%}
-.gallery img.bloom{opacity:1;animation:bloom 2.8s cubic-bezier(.45,0,.2,1) forwards}
-@keyframes bloom{from{--r:-26%}to{--r:170%}}
-/* wide screens: the paintings move to the margins, one place after another (as at Maison Estelle) */
+/* two painted views of Zürich: under the title and after the text on phones, in the margins on wide screens */
+.paint{display:block;width:min(340px,76vw);height:auto;margin:40px auto 0}
+.paint.boat{margin-top:56px}
 @media (min-width:1025px){
   main{position:relative}
   .hero,.prose{position:relative;z-index:1}
-  .gallery{position:absolute;inset:0;width:auto;aspect-ratio:auto;margin:0;pointer-events:none;z-index:0}
-  .gallery img{width:21vw;max-width:340px;height:auto;inset:auto}
-  .gallery img[data-slot=tl]{top:40px;left:3vw}
-  .gallery img[data-slot=tr]{top:40px;right:3vw}
-  .gallery img[data-slot=ml]{top:34%;left:3vw}
-  .gallery img[data-slot=mr]{top:34%;right:3vw}
-  .gallery img[data-slot=bl]{bottom:20px;left:3vw}
-  .gallery img[data-slot=br]{bottom:20px;right:3vw}
+  .paint{position:absolute;z-index:0;width:21vw;max-width:340px;margin:0;pointer-events:none}
+  .paint.church{top:40px;right:3vw}
+  .paint.boat{bottom:20px;left:3vw;margin:0}
 }
 main{display:block;min-height:calc(100vh - 82px);min-height:calc(100svh - 82px)}
 .prose{width:min(594px,100%);margin:0 auto;padding:56px 24px 90px;text-align:center}
@@ -85,13 +70,8 @@ footer{border-top:1px solid var(--rule);padding:30px 24px calc(30px + env(safe-a
 <section class="hero" aria-label="Maison Baer">
   <img class="wappen" id="wappen" src="img/maison-baer-wappen.webp" alt="Maison Baer" width="344" height="500">
   <h1 class="rv">Maison Baer</h1>
-  <div class="gallery rv" aria-label="Zürich">
-    <img src="img/maison-baer-1-seeufer.webp" alt="The lakeshore beneath a willow, painted" width="880" height="1100" fetchpriority="high" decoding="async">
-    <img src="img/maison-baer-2-innenhof.webp" alt="A courtyard with a fountain, painted" width="880" height="1100" loading="lazy" decoding="async">
-    <img src="img/maison-baer-3-grossmuenster.webp" alt="The towers of the Grossmünster, painted" width="880" height="1100" loading="lazy" decoding="async">
-    <img src="img/maison-baer-4-quaibruecke.webp" alt="A bridge over the Limmat, painted" width="880" height="1100" loading="lazy" decoding="async">
-  </div>
 </section>
+  <img class="paint church rv" src="img/maison-baer-3-grossmuenster.webp" alt="The towers of the Grossmünster, painted" width="880" height="1100" decoding="async">
 
 <section class="prose">
   <p class="rv"><em>Maison Baer</em> is a private dinner club. One table, <em>seven</em> guests, never an <em>eighth</em>.</p>
@@ -102,6 +82,7 @@ footer{border-top:1px solid var(--rule);padding:30px 24px calc(30px + env(safe-a
     <a class="btn" href="mailto:hans@mrbaer.ch?subject=Request%20Membership">Request membership</a>
   </div>
 </section>
+  <img class="paint boat rv" src="img/maison-baer-4-quaibruecke.webp" alt="A boat on the Limmat heading for the bridge, painted" width="880" height="1100" loading="lazy" decoding="async">
 </main>
 
 <footer><span>© Maison Baer 2026</span><a href="legal.html">Legal Notice</a></footer>
@@ -109,30 +90,9 @@ footer{border-top:1px solid var(--rule);padding:30px 24px calc(30px + env(safe-a
 
 <script>
 (function(){
-/* gallery: four painted views; on wide screens each appears in another place in the margin
-   (top left, middle right, bottom left, top right, middle left, bottom right), as at Maison Estelle */
-function startGallery(){
-  var G=[].slice.call(document.querySelectorAll(".gallery img"));if(!G.length)return;
-  var S=["tl","mr","bl","tr","ml","br"];
-  var O={tl:["0%","0%"],mr:["100%","50%"],bl:["0%","100%"],tr:["100%","0%"],ml:["0%","50%"],br:["100%","100%"]};
-  var k=0,z=1;
-  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  G[0].setAttribute("data-slot",S[0]);G[0].classList.add("on");G[0].style.zIndex=z;
-  if(reduce)return;
-  setInterval(function(){
-    var prev=G[k%G.length];k++;var im=G[k%G.length],slot=S[k%S.length];
-    im.classList.remove("on","out","bloom");im.setAttribute("data-slot",slot);
-    im.style.setProperty("--x",O[slot][0]);im.style.setProperty("--y",O[slot][1]);
-    im.style.zIndex=++z;void im.offsetWidth;im.classList.add("bloom");
-    prev.classList.remove("on","bloom");prev.classList.add("out");
-    setTimeout(function(){im.classList.remove("bloom");im.classList.add("on");prev.classList.remove("out")},2900);
-  },6500);
-}
-
 /* reveal */
 function open(){
   document.getElementById("wappen").classList.add("on");
-  startGallery();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.2});
   document.querySelectorAll(".rv").forEach(function(n,ix){if(n.closest(".hero"))n.style.transitionDelay=(.3+ix*.4)+"s";io.observe(n)});
 }
