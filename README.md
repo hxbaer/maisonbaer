@@ -14,5 +14,5 @@ Live (GitHub Pages): https://hxbaer.github.io/maisonbaer/
 ## Notes
 
 - The password page has been removed; the site opens directly on the house page.
-- The painting gallery is switched off for now (`hidden` on `.gallery`, `startGallery()` commented out).
+- The four paintings appear one after another in the page margins (desktop) or under the title (mobile).
 - Fonts: Cormorant Garamond, Cormorant SC and EB Garamond, self-hosted in `fonts/` (latin subset, from Fontsource; SIL Open Font License). No requests go to Google.

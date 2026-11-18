@@ -85,7 +85,7 @@ footer{border-top:1px solid var(--rule);padding:30px 24px calc(30px + env(safe-a
 <section class="hero" aria-label="Maison Baer">
   <img class="wappen" id="wappen" src="img/maison-baer-wappen.webp" alt="Maison Baer" width="344" height="500">
   <h1 class="rv">Maison Baer</h1>
-  <div class="gallery rv" hidden aria-label="Zürich">
+  <div class="gallery rv" aria-label="Zürich">
     <img src="img/maison-baer-1-seeufer.webp" alt="The lakeshore beneath a willow, painted" width="880" height="1100" fetchpriority="high" decoding="async">
     <img src="img/maison-baer-2-innenhof.webp" alt="A courtyard with a fountain, painted" width="880" height="1100" loading="lazy" decoding="async">
     <img src="img/maison-baer-3-grossmuenster.webp" alt="The towers of the Grossmünster, painted" width="880" height="1100" loading="lazy" decoding="async">
@@ -132,7 +132,7 @@ function startGallery(){
 /* reveal */
 function open(){
   document.getElementById("wappen").classList.add("on");
-  /* gallery paused for now: startGallery(); */
+  startGallery();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.2});
   document.querySelectorAll(".rv").forEach(function(n,ix){if(n.closest(".hero"))n.style.transitionDelay=(.3+ix*.4)+"s";io.observe(n)});
 }
