@@ -125,23 +125,9 @@ footer a:hover{color:var(--ink)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
-<body class="locked">
+<body>
 
-<div id="gate" role="dialog" aria-label="Members only">
-  <div class="door l" aria-hidden="true"></div><div class="door r" aria-hidden="true"></div>
-  <div class="inner">
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="wgreen" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".95 0 0 0 0  0 .86 0 0 .05  0 0 .76 0 .04  0 0 0 1 0"/></filter></svg>
-    <img class="wappen" id="gcrest" src="img/maison-baer-wappen.webp" alt="Baer coat of arms" width="344" height="500">
-    <span class="sc">members only</span>
-    <form id="gf" autocomplete="off">
-      <input id="pw" type="password" placeholder="enter code" aria-label="Access code" autocomplete="off" autocapitalize="off" spellcheck="false">
-      <button class="btn" type="submit">enter</button>
-      <p class="hint" id="hint" aria-live="polite"></p>
-    </form>
-  </div>
-</div>
-
-<div class="house" id="site" aria-hidden="true">
+<div class="house" id="site">
 <main>
 <section class="hero" aria-label="Maison Baer">
   <img class="wappen" id="hcrest" src="img/maison-baer-wappen.webp" alt="Maison Baer" width="344" height="500">
@@ -171,7 +157,6 @@ footer a:hover{color:var(--ink)}
 <script>
 (function(){
 var NS="http://www.w3.org/2000/svg";
-var HASH="7902699be42c8a8e46fbbb4501726517e86b22c56a189f7625a6da49081b2451"; /* SHA-256 of the access code */
 function mk(p,t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
 
 /* crest: ring, 7 points, every point joined to every other (heptagon + both heptagrams) */
@@ -222,41 +207,6 @@ function play(c,start,step,done){
 }
 function reset(c){c.D.forEach(function(d){d.classList.remove("on")});c.L.forEach(function(l){l.el.classList.remove("on")})}
 
-/* gate: each typed character lights the next point and joins it to the last */
-var g=document.getElementById("gcrest"),pw=document.getElementById("pw"),hint=document.getElementById("hint");
-function typed(){
-  var n=Math.min(pw.value.length,7);
-  g.style.filter=n?"url(#wgreen) drop-shadow(0 0 "+(4+n*2)+"px rgba(234,208,143,"+(.08+n*.03).toFixed(2)+"))":"";
-  hint.textContent="";hint.classList.remove("err");
-}
-pw.addEventListener("input",typed);
-setTimeout(function(){try{pw.focus({preventScroll:true})}catch(e){}},400);
-
-async function sha(s){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")}
-document.getElementById("gf").addEventListener("submit",async function(e){
-  e.preventDefault();
-  var ok=false;try{ok=(await sha(pw.value))===HASH}catch(err){ok=false}
-  if(!ok){
-    var f=document.querySelector("#gate form");f.classList.remove("shake");void f.offsetWidth;f.classList.add("shake");
-    pw.value="";typed();hint.textContent="Not this time.";hint.classList.add("err");return;
-  }
-  pw.blur();pw.disabled=true;
-  unlock();
-});
-
-/* unlock: the arms light up in gold, step forward and the gate dissolves into the house */
-function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
-async function unlock(){
-  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  g.style.filter="url(#wgreen) drop-shadow(0 0 26px rgba(234,208,143,.55))";
-  if(reduce){await wait(600);open();document.getElementById("gate").classList.add("gone");return}
-  await wait(1100);
-  g.style.transform="scale(1.1)";g.style.opacity="0";
-  await wait(250);
-  open();
-  document.getElementById("gate").classList.add("gone");
-}
-
 /* gallery: four painted views; on wide screens each appears in another place in the margin
    (top left, middle right, bottom left, top right, middle left, bottom right), as at Maison Estelle */
 function startGallery(){
@@ -287,8 +237,9 @@ function open(){
   hc.classList.add("on");
   /* gallery paused for now: startGallery(); */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.2});
-  document.querySelectorAll(".rv").forEach(function(n,ix){if(n.closest(".hero"))n.style.transitionDelay=(2.4+ix*.5)+"s";io.observe(n)});
+  document.querySelectorAll(".rv").forEach(function(n,ix){if(n.closest(".hero"))n.style.transitionDelay=(.3+ix*.4)+"s";io.observe(n)});
 }
+open();
 })();
 </script>
 </body>
