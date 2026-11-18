@@ -14,5 +14,5 @@ Live (GitHub Pages): https://hxbaer.github.io/maisonbaer/
 ## Notes
 
 - The password page has been removed; the site opens directly on the house page.
-- The two paintings sit still in the margins on wide screens (Grossmünster top right, Quaibrücke bottom left); on phones, one sits under the title and the other after the text.
+- The two paintings sit still in the corners on wide screens (Grossmünster top right, Quaibrücke bottom left) and fade into the paper without a visible edge; on phones, one sits under the title and the other after the text, each in a soft vignette.
 - Fonts: Cormorant Garamond, Cormorant SC and EB Garamond, self-hosted in `fonts/` (latin subset, from Fontsource; SIL Open Font License). No requests go to Google.
