@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maison Baer</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ebe4d8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0f2722;--green2:#0a1b17;
+  --paper:#ebe4d8;--paper2:#e4dccd;--ink:#1f3329;--ink2:#4a5a4f;
+  --gold:#d2ad66;--gold2:#ead08f;--goldd:#9a7637;--line:rgba(210,173,102,.34);--rule:rgba(31,51,41,.22);
+  --disp:'Cormorant Garamond',Georgia,serif;--sc:'Cormorant SC','Cormorant Garamond',serif;--body:'EB Garamond',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .3' numOctaves='2' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 .99  0 0 0 0 .96  .9 0 0 0 -.56'/%3E%3C/filter%3E%3Crect width='500' height='500' filter='url%28%23f%29'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='a' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' seed='4' stitchTiles='stitch' result='n'/%3E%3CfeDiffuseLighting in='n' surfaceScale='1.1' diffuseConstant='1' lighting-color='%23fff'%3E%3CfeDistantLight azimuth='45' elevation='60'/%3E%3C/feDiffuseLighting%3E%3CfeColorMatrix values='0 0 0 0 .4  0 0 0 0 .34  0 0 0 0 .26  -.55 0 0 0 .5'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url%28%23a%29'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.005' numOctaves='4' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5  0 0 0 0 .42  0 0 0 0 .3  .45 0 0 0 -.17'/%3E%3C/filter%3E%3Crect width='900' height='900' filter='url%28%23m%29'/%3E%3C/svg%3E");
+  background-size:500px 500px,400px 400px,900px 900px}
+body.locked{overflow:hidden;height:100vh}
+a{color:inherit;text-decoration:none}
+.sc{font-family:var(--sc);font-weight:500;letter-spacing:.34em;text-transform:lowercase;font-size:.95rem}
+.btn{display:inline-block;position:relative;font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.32em;font-size:.95rem;padding:16px 36px;background:none;cursor:pointer;transition:background .5s,color .5s}
+
+/* crest – colours come from the context (dark door or light house) */
+.crest{display:block;margin:0 auto;overflow:visible;shape-rendering:geometricPrecision;--c-ring:var(--gold);--c-line:var(--gold2);--c-bg:var(--green2);--c-on:var(--gold2)}
+.crest .ring{fill:none;stroke:var(--c-ring);stroke-width:1.1}
+.crest .ring2{fill:none;stroke:var(--c-ring);stroke-width:.5;opacity:.5}
+.crest .ln{fill:none;stroke:var(--c-line);stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.6,0,.2,1)}
+.crest .ln.s1{stroke-width:1}.crest .ln.s2{stroke-width:.7;opacity:.75}.crest .ln.s3{stroke-width:.55;opacity:.55}
+.crest .ghost path{fill:none;stroke:var(--c-ring);stroke-width:.45;opacity:.22}
+.crest .ln.on{stroke-dashoffset:0!important}
+.crest .pt{fill:var(--c-bg);stroke:var(--c-ring);stroke-width:.9;transition:fill .5s}
+.crest .pt.on{fill:var(--c-on)}
+.crest .hub{fill:var(--c-bg);stroke:var(--c-ring);stroke-width:.9}
+.crest .seven{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:22px;fill:var(--c-on);opacity:0;transition:opacity 1.4s}
+.crest .seven.on{opacity:1}
+.house .crest{--c-ring:#a8823d;--c-line:#9a7637;--c-bg:var(--paper);--c-on:#a8823d}
+
+/* gate: the dark door */
+#gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;text-align:center;color:#f4ecda;transition:opacity 1.6s ease,visibility 1.6s}
+#gate::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 60% 55% at 50% 45%,transparent 30%,rgba(4,10,8,.85) 100%);pointer-events:none}
+#gate.gone{opacity:0;visibility:hidden}
+.door{position:absolute;top:0;bottom:0;width:50.05%;z-index:0;background-color:var(--green);
+  background-image:
+    radial-gradient(ellipse 75% 60% at 50% 0%,rgba(232,180,96,.16),transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% 100%,rgba(0,0,0,.35),transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.45 .004' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .01 0 0 0 0 .05 0 0 0 0 .04 0 0 0 -.7 .36'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size:200% 100%,200% 100%,420px 420px}
+.door.l{left:0;background-position:0 0,0 0,0 0}
+.door.r{right:0;background-position:100% 0,100% 0,calc(-50vw) 0}
+.door::before,.door::after{content:"";position:absolute;left:14%;right:14%;border:1px solid rgba(210,173,102,.14);box-shadow:inset 0 0 0 7px rgba(0,0,0,.1),inset 0 0 0 8px rgba(210,173,102,.05),0 0 0 1px rgba(0,0,0,.25)}
+.door::before{top:7%;height:50%}
+.door::after{top:62%;bottom:7%}
+#gate .inner{position:relative;z-index:2;padding:24px;width:min(420px,100%)}
+#gate .wappen{display:block;height:clamp(190px,30vh,270px);width:auto;margin:0 auto 34px;filter:url(#wgreen) drop-shadow(0 0 0 rgba(234,208,143,0));transition:filter .6s,transform 1.4s cubic-bezier(.6,0,.2,1),opacity 1.2s}
+#gate .sc{display:block;margin-bottom:30px;color:var(--gold)}
+#gate form{display:flex;flex-direction:column;align-items:center;gap:30px}
+#gate .btn{color:var(--gold2);border:1px solid var(--gold)}
+#gate .btn::after{content:"";position:absolute;inset:3px;border:1px solid rgba(210,173,102,.38);pointer-events:none}
+#gate .btn:hover,#gate .btn:focus-visible{background:var(--gold);color:var(--green2);outline:none}
+#pw{width:100%;background:none;border:0;border-bottom:1px solid var(--line);color:var(--gold2);font:500 1.4rem var(--disp);letter-spacing:.5em;text-align:center;padding:10px 0 12px;outline:none;transition:border-color .4s;caret-color:var(--gold)}
+#pw:focus{border-color:var(--gold)}
+#pw::placeholder{color:rgba(244,236,218,.35);letter-spacing:.3em;font-size:1rem;font-style:italic}
+#gate .hint{font-family:var(--disp);font-style:italic;color:rgba(244,236,218,.5);font-size:.98rem;min-height:1.4em}
+#gate .hint.err{color:#d98b7e}
+.shake{animation:shake .5s}
+@keyframes shake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+
+/* the house */
+header{position:fixed;top:0;left:0;right:0;z-index:30;height:96px;display:flex;align-items:center;padding:0 clamp(22px,5vw,64px);transition:background .5s,box-shadow .5s}
+header.solid{background:rgba(235,228,216,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 1px 0 var(--rule)}
+.brand{display:flex;align-items:center;gap:16px}
+.brand .crest{width:38px;height:38px;margin:0}
+.brand .crest .ring{stroke-width:3}.brand .crest .ring2,.brand .crest .ghost,.brand .crest .ln.s3{display:none}.brand .crest .ln.s1{stroke-width:2.6}.brand .crest .ln.s2{stroke-width:1.6;opacity:.8}.brand .crest .pt{stroke-width:2}.brand .crest .hub{stroke-width:2.4}
+.brand .wm{font-family:var(--sc);font-weight:600;font-size:.95rem;letter-spacing:.3em;text-transform:lowercase;color:var(--ink)}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:30px 24px 0}
+.hero .wappen{display:block;height:175px;width:auto;margin:0 auto 26px;image-rendering:-webkit-optimize-contrast;opacity:0;transition:opacity 1.6s ease .5s}.hero .wappen.on{opacity:1}
+.hero h1{font-family:var(--disp);font-weight:500;font-size:1.2rem;letter-spacing:.34em;padding-left:.34em;white-space:nowrap;text-transform:uppercase;line-height:1;color:var(--ink)}
+/* painted views: each one blooms in from a different corner, like wet paint spreading */
+@property --r{syntax:'<percentage>';inherits:false;initial-value:0%}
+.gallery[hidden]{display:none!important}
+.gallery{position:relative;width:min(340px,76vw);aspect-ratio:4/5;margin-top:40px}
+.gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;--r:0%;
+  -webkit-mask-image:radial-gradient(circle at var(--x,0%) var(--y,0%),#000 var(--r),transparent calc(var(--r) + 26%));
+  mask-image:radial-gradient(circle at var(--x,0%) var(--y,0%),#000 var(--r),transparent calc(var(--r) + 26%))}
+.gallery img{transition:opacity 2s ease}
+.gallery img.on{opacity:1;--r:170%}
+.gallery img.out{opacity:0;--r:170%}
+.gallery img.bloom{opacity:1;animation:bloom 2.8s cubic-bezier(.45,0,.2,1) forwards}
+@keyframes bloom{from{--r:-26%}to{--r:170%}}
+/* wide screens: the paintings move to the margins, one place after another (as at Maison Estelle) */
+@media (min-width:1025px){
+  main{position:relative}
+  .hero,.prose{position:relative;z-index:1}
+  .gallery{position:absolute;inset:0;width:auto;aspect-ratio:auto;margin:0;pointer-events:none;z-index:0}
+  .gallery img{width:21vw;max-width:340px;height:auto;inset:auto}
+  .gallery img[data-slot=tl]{top:40px;left:3vw}
+  .gallery img[data-slot=tr]{top:40px;right:3vw}
+  .gallery img[data-slot=ml]{top:34%;left:3vw}
+  .gallery img[data-slot=mr]{top:34%;right:3vw}
+  .gallery img[data-slot=bl]{bottom:20px;left:3vw}
+  .gallery img[data-slot=br]{bottom:20px;right:3vw}
+}
+main{display:block;min-height:calc(100vh - 82px);min-height:calc(100svh - 82px)}
+.prose{width:min(594px,100%);margin:0 auto;padding:56px 24px 90px;text-align:center}
+.prose p{font-size:1.15rem;line-height:1.56;color:var(--ink);text-wrap:balance}
+.prose p+p{margin-top:1.56em}
+.prose em{font-style:italic}
+.prose .quiet{color:var(--ink)}
+.actions{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.house .btn{color:var(--ink);border:1px solid var(--ink);width:min(330px,100%);padding:22px 0;font-size:.8rem;letter-spacing:.3em}
+.house .btn:hover,.house .btn:focus-visible{background:var(--ink);color:var(--paper);outline:none}
+.links{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.links a{font-family:var(--sc);font-weight:500;text-transform:lowercase;letter-spacing:.16em;font-size:.95rem;padding-bottom:4px;border-bottom:1px solid var(--ink)}
+footer a{border-bottom:1px solid transparent;transition:border-color .3s}footer a:hover{border-color:currentColor}
+footer{border-top:1px solid var(--rule);padding:30px 24px calc(30px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-family:var(--sc);font-weight:500;text-transform:lowercase;letter-spacing:.26em;font-size:.78rem;color:var(--ink)}
+footer a:hover{color:var(--ink)}
+.rv{opacity:0;transform:translateY(10px);transition:opacity 1.6s ease,transform 1.6s ease}
+.rv.in{opacity:1;transform:none}
+@media (max-width:600px){.hero{padding-top:30px}.brand .crest{width:32px;height:32px}#pw{letter-spacing:.35em}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="locked">
+
+<div id="gate" role="dialog" aria-label="Members only">
+  <div class="door l" aria-hidden="true"></div><div class="door r" aria-hidden="true"></div>
+  <div class="inner">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="wgreen" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".95 0 0 0 0  0 .86 0 0 .05  0 0 .76 0 .04  0 0 0 1 0"/></filter></svg>
+    <img class="wappen" id="gcrest" src="img/maison-baer-wappen.webp" alt="Baer coat of arms" width="344" height="500">
+    <span class="sc">members only</span>
+    <form id="gf" autocomplete="off">
+      <input id="pw" type="password" placeholder="enter code" aria-label="Access code" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="btn" type="submit">enter</button>
+      <p class="hint" id="hint" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
+<div class="house" id="site" aria-hidden="true">
+<main>
+<section class="hero" aria-label="Maison Baer">
+  <img class="wappen" id="hcrest" src="img/maison-baer-wappen.webp" alt="Maison Baer" width="344" height="500">
+  <h1 class="rv">Maison Baer</h1>
+  <div class="gallery rv" hidden aria-label="Zürich">
+    <img src="img/maison-baer-1-seeufer.webp" alt="The lakeshore beneath a willow, painted" width="880" height="1100" fetchpriority="high" decoding="async">
+    <img src="img/maison-baer-2-innenhof.webp" alt="A courtyard with a fountain, painted" width="880" height="1100" loading="lazy" decoding="async">
+    <img src="img/maison-baer-3-grossmuenster.webp" alt="The towers of the Grossmünster, painted" width="880" height="1100" loading="lazy" decoding="async">
+    <img src="img/maison-baer-4-quaibruecke.webp" alt="A bridge over the Limmat, painted" width="880" height="1100" loading="lazy" decoding="async">
+  </div>
+</section>
+
+<section class="prose">
+  <p class="rv"><em>Maison Baer</em> is a private dinner club. One table, <em>seven</em> guests, never an <em>eighth</em>.</p>
+  <p class="rv">One long evening, a menu that is never served twice, and a conversation that decides for itself when it ends.</p>
+  <p class="rv">It began with a simple wish: to bring together people who would rather listen than impress.</p>
+  <p class="rv quiet">Membership is offered <em>on request</em>, through those already at the table.</p>
+  <div class="actions rv">
+    <a class="btn" href="mailto:hans@chreis7.ch?subject=Maison%20Baer">Request a seat</a>
+  </div>
+</section>
+</main>
+
+<footer><span>© Maison Baer 2026</span><a href="legal.html">Legal Notice</a></footer>
+</div>
+
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg";
+var HASH="7902699be42c8a8e46fbbb4501726517e86b22c56a189f7625a6da49081b2451"; /* SHA-256 of the access code */
+function mk(p,t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
+
+/* crest: ring, 7 points, every point joined to every other (heptagon + both heptagrams) */
+function crest(svg){
+  mk(svg,"circle",{cx:100,cy:100,r:62,"class":"ring"});
+  mk(svg,"circle",{cx:100,cy:100,r:58,"class":"ring2"});
+  var P=[],L=[],D=[];
+  for(var i=0;i<7;i++){var a=-Math.PI/2+i*2*Math.PI/7;P.push([100+46*Math.cos(a),100+46*Math.sin(a)])}
+  var M=mk(svg,"g",{"class":"mech"});
+  var gh=mk(M,"g",{"class":"ghost"});
+  [1,2,3].forEach(function(s){for(var i=0;i<7;i++){var j=(i+s)%7;mk(gh,"path",{d:"M"+P[i][0].toFixed(3)+" "+P[i][1].toFixed(3)+"L"+P[j][0].toFixed(3)+" "+P[j][1].toFixed(3)})}});
+  var gl=mk(M,"g",{});
+  [1,2,3].forEach(function(s){for(var i=0;i<7;i++){var j=(i+s)%7;
+    var len=Math.hypot(P[j][0]-P[i][0],P[j][1]-P[i][1]).toFixed(3);
+    var l=mk(gl,"path",{d:"M"+P[i][0].toFixed(3)+" "+P[i][1].toFixed(3)+"L"+P[j][0].toFixed(3)+" "+P[j][1].toFixed(3),"class":"ln s"+s});
+    l.style.strokeDasharray=len+" "+len;l.style.strokeDashoffset=len;
+    L.push({el:l,a:i,b:j,s:s})}});
+  P.forEach(function(p){D.push(mk(M,"circle",{cx:p[0],cy:p[1],r:3.3,"class":"pt"}))});
+  var H=mk(M,"circle",{cx:100,cy:100,r:15,"class":"hub"});
+  var K=mk(M,"g",{"class":"key"});
+  var t=mk(K,"text",{x:100,y:100,"text-anchor":"middle","dominant-baseline":"central","class":"seven"});t.textContent="7";
+  centreInk(t,100,22);
+  return {L:L,D:D,T:t,M:M,K:K,H:H,svg:svg};
+}
+/* optical centring: place the ink of the glyph (not its line box) on the centre point */
+function centreInk(t,c,size){
+  function fit(){try{
+    var cx=document.createElement("canvas").getContext("2d");
+    cx.font="600 "+size+"px 'Cormorant Garamond', Georgia, serif";
+    var m=cx.measureText("7");
+    if(m.actualBoundingBoxAscent===undefined)return;
+    t.setAttribute("text-anchor","start");t.setAttribute("dominant-baseline","alphabetic");
+    t.setAttribute("x",(c-(m.actualBoundingBoxRight-m.actualBoundingBoxLeft)/2).toFixed(2));
+    t.setAttribute("y",(c+(m.actualBoundingBoxAscent-m.actualBoundingBoxDescent)/2).toFixed(2));
+  }catch(e){}}
+  fit();if(document.fonts&&document.fonts.load){document.fonts.load("600 "+size+"px 'Cormorant Garamond'").then(fit,fit)}
+}
+/* play: points light one by one, each new point draws its line(s) back to the previous ones */
+function play(c,start,step,done){
+  var lit=[];
+  c.D.forEach(function(d,i){setTimeout(function(){
+    d.classList.add("on");lit.push(i);
+    c.L.forEach(function(l){if(l.s==1&&((l.a==i&&lit.indexOf(l.b)>-1)||(l.b==i&&lit.indexOf(l.a)>-1)))l.el.classList.add("on")});
+  },start+i*step)});
+  var t2=start+7*step+200;
+  c.L.forEach(function(l,k){if(l.s>1)setTimeout(function(){l.el.classList.add("on")},t2+(k-7)*70)});
+  setTimeout(function(){c.T.classList.add("on");done&&done()},t2+14*70+600);
+}
+function reset(c){c.D.forEach(function(d){d.classList.remove("on")});c.L.forEach(function(l){l.el.classList.remove("on")})}
+
+/* gate: each typed character lights the next point and joins it to the last */
+var g=document.getElementById("gcrest"),pw=document.getElementById("pw"),hint=document.getElementById("hint");
+function typed(){
+  var n=Math.min(pw.value.length,7);
+  g.style.filter=n?"url(#wgreen) drop-shadow(0 0 "+(4+n*2)+"px rgba(234,208,143,"+(.08+n*.03).toFixed(2)+"))":"";
+  hint.textContent="";hint.classList.remove("err");
+}
+pw.addEventListener("input",typed);
+setTimeout(function(){try{pw.focus({preventScroll:true})}catch(e){}},400);
+
+async function sha(s){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")}
+document.getElementById("gf").addEventListener("submit",async function(e){
+  e.preventDefault();
+  var ok=false;try{ok=(await sha(pw.value))===HASH}catch(err){ok=false}
+  if(!ok){
+    var f=document.querySelector("#gate form");f.classList.remove("shake");void f.offsetWidth;f.classList.add("shake");
+    pw.value="";typed();hint.textContent="Not this time.";hint.classList.add("err");return;
+  }
+  pw.blur();pw.disabled=true;
+  unlock();
+});
+
+/* unlock: the arms light up in gold, step forward and the gate dissolves into the house */
+function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
+async function unlock(){
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  g.style.filter="url(#wgreen) drop-shadow(0 0 26px rgba(234,208,143,.55))";
+  if(reduce){await wait(600);open();document.getElementById("gate").classList.add("gone");return}
+  await wait(1100);
+  g.style.transform="scale(1.1)";g.style.opacity="0";
+  await wait(250);
+  open();
+  document.getElementById("gate").classList.add("gone");
+}
+
+/* gallery: four painted views; on wide screens each appears in another place in the margin
+   (top left, middle right, bottom left, top right, middle left, bottom right), as at Maison Estelle */
+function startGallery(){
+  var G=[].slice.call(document.querySelectorAll(".gallery img"));if(!G.length)return;
+  var S=["tl","mr","bl","tr","ml","br"];
+  var O={tl:["0%","0%"],mr:["100%","50%"],bl:["0%","100%"],tr:["100%","0%"],ml:["0%","50%"],br:["100%","100%"]};
+  var k=0,z=1;
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  G[0].setAttribute("data-slot",S[0]);G[0].classList.add("on");G[0].style.zIndex=z;
+  if(reduce)return;
+  setInterval(function(){
+    var prev=G[k%G.length];k++;var im=G[k%G.length],slot=S[k%S.length];
+    im.classList.remove("on","out","bloom");im.setAttribute("data-slot",slot);
+    im.style.setProperty("--x",O[slot][0]);im.style.setProperty("--y",O[slot][1]);
+    im.style.zIndex=++z;void im.offsetWidth;im.classList.add("bloom");
+    prev.classList.remove("on","bloom");prev.classList.add("out");
+    setTimeout(function(){im.classList.remove("bloom");im.classList.add("on");prev.classList.remove("out")},2900);
+  },6500);
+}
+
+/* site */
+function sc(){}
+var hc=document.getElementById("hcrest");
+function open(){
+  document.body.classList.remove("locked");
+  document.getElementById("site").removeAttribute("aria-hidden");
+  addEventListener("scroll",sc,{passive:true});sc();
+  hc.classList.add("on");
+  /* gallery paused for now: startGallery(); */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.2});
+  document.querySelectorAll(".rv").forEach(function(n,ix){if(n.closest(".hero"))n.style.transitionDelay=(2.4+ix*.5)+"s";io.observe(n)});
+}
+})();
+</script>
+</body>
+</html>
