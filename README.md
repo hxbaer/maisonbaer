@@ -7,6 +7,8 @@ Live (GitHub Pages): https://hxbaer.github.io/maisonbaer/
 ## Files
 
 - `index.html`: the house page (ivory paper, Baer coat of arms). One self-contained file: HTML, CSS and JS.
+- `house.html`: The House (name, arms, origin).
+- `membership.html`: Membership (introduction by two guests, request button).
 - `legal.html`: Legal Notice in English.
 - `img/`: coat of arms and two watercolour paintings of Zürich (Grossmünster, Quaibrücke).
 - `tools/watercolour.py`: the Python/OpenCV filter that turned the photos into the paintings.
