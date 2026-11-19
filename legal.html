@@ -19,7 +19,7 @@ a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);tran
 a:hover{border-color:var(--ink)}
 .sc{font-family:var(--sc);font-weight:500;letter-spacing:.34em;text-transform:lowercase;font-size:.92rem;color:var(--gold)}
 header{display:flex;justify-content:center;padding:30px 24px 0}
-header a{border:0;display:flex;flex-direction:column;align-items:center;gap:26px;color:var(--ink)}
+header .brand{border:0;display:flex;flex-direction:column;align-items:center;gap:26px;color:var(--ink)}
 .wappen{display:block;height:clamp(130px,19.5vh,175px);width:auto;image-rendering:-webkit-optimize-contrast}
 .wm{font-family:var(--disp);font-weight:500;font-size:1.2rem;letter-spacing:.34em;padding-left:.34em;white-space:nowrap;text-transform:uppercase;line-height:1}
 main{width:min(680px,100%);margin:0 auto;padding:clamp(28px,4.5vh,40px) 24px clamp(40px,7vh,90px)}
@@ -58,10 +58,10 @@ footer a{border-bottom:1px solid transparent;transition:border-color .3s}footer 
 <body>
 <nav class="nav" aria-label="Main"><a href="index.html">The Club</a><a href="house.html">The House</a><a href="membership.html">Membership</a></nav>
 <header>
-  <a href="index.html" aria-label="Maison Baer">
+  <div class="brand">
     <img class="wappen" src="img/maison-baer-wappen.webp" alt="" width="344" height="500">
     <span class="wm">Maison Baer</span>
-  </a>
+  </div>
 </header>
 
 <main>
