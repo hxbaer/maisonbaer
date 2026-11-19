@@ -10,7 +10,7 @@ Live (GitHub Pages): https://hxbaer.github.io/maisonbaer/
 - `history.html`: History (name, arms, why the club exists). `house.html` forwards there.
 - `membership.html`: Membership (introduction by two guests, request button).
 - `legal.html`: Legal Notice in English.
-- `img/`: coat of arms and four watercolours, painted from photos on Unsplash (Unsplash License): Grossmünster at dusk and Bauschänzli in the blue hour (home, photos by Claudio Schwarz and Manuela Pezone), an old wooden door (History, photo by Joel & Jasmin Førestbird), the Limmat with St. Peter (Membership, photo by Tomi Blasic).
+- `img/`: coat of arms and four watercolours: the Limmat and Grossmünster from above and a boat with a swan on Lake Zurich (home, from Unsplash photos by Henrique Ferreira and Domenico Loia), a courtyard with a fountain (History, own photo), the Limmat with St. Peter (Membership, from an Unsplash photo by Tomi Blasic). Unsplash photos are used under the Unsplash License.
 - `tools/watercolour.py`: the Python/OpenCV filter that turned the photos into the paintings.
 
 ## Notes
