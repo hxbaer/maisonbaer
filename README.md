@@ -2,7 +2,7 @@
 
 Website for Maison Baer, a private dinner club.
 
-Live (GitHub Pages): https://hxbaer.github.io/maisonbaer/
+Live (GitHub Pages): https://www.maisonbaer.ch/
 
 ## Files
 
