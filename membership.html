@@ -71,7 +71,7 @@ footer a{border-bottom:1px solid transparent;transition:border-color .3s}footer 
 /* the paintings spread out of their corner like wet paint, once, when the page opens */
 @property --p{syntax:'<number>';inherits:false;initial-value:1}
 @keyframes bleed{from{--p:.12;opacity:.15;filter:blur(5px) saturate(.35)}60%{opacity:1}to{--p:1;opacity:1;filter:none}}
-.paint{animation:bleed 3.2s cubic-bezier(.22,.61,.36,1) .25s both}
+.paint{animation:bleed 3.2s cubic-bezier(.22,.61,.36,1) .25s both;animation-play-state:paused}.paint.seen{animation-play-state:running}
 /* soft cross-fade between pages; coat of arms, menu and footer stay in place */
 @view-transition{navigation:auto}
 @keyframes vt-out{to{opacity:0}}@keyframes vt-in{from{opacity:0}}
@@ -105,5 +105,11 @@ footer a{border-bottom:1px solid transparent;transition:border-color .3s}footer 
 
 <footer><span>© Maison Baer 2026</span><a href="legal.html">Legal Notice</a></footer>
 
+<script>
+/* start the paint effect only when a painting actually comes into view (matters on phones, where they sit below the text) */
+(function(){var ps=document.querySelectorAll('.paint');if(!('IntersectionObserver' in window)){ps.forEach(function(p){p.classList.add('seen')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target)}})},{threshold:.25});
+ps.forEach(function(p){io.observe(p)})})();
+</script>
 </body>
 </html>
