@@ -1,6 +1,6 @@
 # Maison Baer
 
-Members-only website for Maison Baer, a private dinner club. One table, seven guests, never an eighth.
+Website for Maison Baer, a private dinner club.
 
 Live (GitHub Pages): https://hxbaer.github.io/maisonbaer/
 
