@@ -10,7 +10,7 @@ Live (GitHub Pages): https://hxbaer.github.io/maisonbaer/
 - `history.html`: History (name, arms, why the club exists). `house.html` forwards there.
 - `membership.html`: Membership (introduction by two guests, request button).
 - `legal.html`: Legal Notice in English.
-- `img/`: coat of arms and four watercolour paintings of Zürich: Grossmünster and Quaibrücke (home), a courtyard with a fountain (History), Augustinergasse (Membership).
+- `img/`: coat of arms and four watercolour paintings of Zürich: Grossmünster and Quaibrücke (home), a courtyard with a fountain (History), the Limmat with St. Peter (Membership, from a photo by Tomi Blasic on Unsplash).
 - `tools/watercolour.py`: the Python/OpenCV filter that turned the photos into the paintings.
 
 ## Notes
