@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}
 
 /* the house */
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:30px 24px 0}
-.hero .wappen{display:block;height:175px;width:auto;margin:0 auto 26px;image-rendering:-webkit-optimize-contrast;opacity:0;transition:opacity 1.6s ease .5s}.hero .wappen.on{opacity:1}
+.hero .wappen{display:block;height:clamp(130px,19.5vh,175px);width:auto;margin:0 auto 26px;image-rendering:-webkit-optimize-contrast;opacity:0;transition:opacity 1.6s ease .5s}.hero .wappen.on{opacity:1}
 .hero h1{font-family:var(--disp);font-weight:500;font-size:1.2rem;letter-spacing:.34em;padding-left:.34em;white-space:nowrap;text-transform:uppercase;line-height:1;color:var(--ink)}
 /* two painted views of Zürich that bleed out of the corners into the paper, with no visible edge */
 .paint{display:block;width:min(420px,100%);height:auto;margin:24px auto 0;mix-blend-mode:multiply;
@@ -54,8 +54,8 @@ a{color:inherit;text-decoration:none}
     mask-image:linear-gradient(to top,transparent 0%,#000 18%),radial-gradient(ellipse 100% 100% at 0% 100%,#000 46%,rgba(0,0,0,.55) 68%,transparent 88%);mask-composite:intersect}
   .paint.rv.in{transform:translate(17%,-6%)}.paint.boat.rv.in{transform:translate(-6%,6%)}
 }
-main{display:block;min-height:calc(100vh - 82px);min-height:calc(100svh - 82px)}
-.prose{width:min(594px,100%);margin:0 auto;padding:56px 24px 90px;text-align:center}
+main{display:block;min-height:calc(100vh - 79px);min-height:calc(100svh - 79px)}
+.prose{width:min(594px,100%);margin:0 auto;padding:clamp(36px,6vh,56px) 24px clamp(40px,7vh,90px);text-align:center}
 .prose p{font-size:1.15rem;line-height:1.56;color:var(--ink);text-wrap:balance}
 .prose p+p{margin-top:1.56em}
 .prose em{font-style:italic}
@@ -63,7 +63,7 @@ main{display:block;min-height:calc(100vh - 82px);min-height:calc(100svh - 82px)}
 .house .btn{color:var(--ink);border:1px solid var(--ink);width:min(330px,100%);padding:22px 0;font-size:.8rem;letter-spacing:.3em}
 .house .btn:hover,.house .btn:focus-visible{background:var(--ink);color:var(--paper);outline:none}
 footer a{border-bottom:1px solid transparent;transition:border-color .3s}footer a:hover{border-color:currentColor}
-footer{border-top:1px solid var(--rule);padding:30px 24px calc(30px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-family:var(--sc);font-weight:500;text-transform:lowercase;letter-spacing:.26em;font-size:.78rem;color:var(--ink)}
+footer{border-top:1px solid var(--rule);padding:30px 24px calc(30px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-family:var(--sc);font-weight:500;text-transform:lowercase;letter-spacing:.26em;font-size:.78rem;line-height:1.4;color:var(--ink)}
 .rv{opacity:0;transform:translateY(10px);transition:opacity 1.6s ease,transform 1.6s ease}
 .rv.in{opacity:1;transform:none}
 @media (max-width:420px){footer{gap:14px 26px;letter-spacing:.2em}}
