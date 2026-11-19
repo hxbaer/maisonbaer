@@ -45,16 +45,34 @@ footer{border-top:1px solid var(--line);padding:30px 24px calc(30px + env(safe-a
 .cta a{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.3em;font-size:.85rem;border:1px solid var(--ink);padding:20px 0;width:min(330px,100%);display:inline-block;color:var(--ink);transition:background .4s,color .4s}
 .cta a:hover{background:var(--ink);color:var(--paper)}
 body{position:relative}
+/* a painted view of Zürich that bleeds out of the corners into the paper, with no visible edge */
+.paint{display:block;width:min(420px,100%);height:auto;margin:24px auto 0;mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 45%,transparent 100%);
+  mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 45%,transparent 100%)}
+.paint.boat{margin-top:40px}
+@media (min-width:1025px){
+  .page{position:relative;overflow:hidden}
+  header,main{position:relative;z-index:1}
+  .paint{position:absolute;z-index:0;width:27vw;max-width:440px;margin:0;pointer-events:none}
+  .paint.church{top:0;right:0;transform:translate(17%,-6%);
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 24%),radial-gradient(ellipse 135% 100% at 100% 0%,#000 52%,rgba(0,0,0,.6) 72%,transparent 92%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right,transparent 0%,#000 24%),radial-gradient(ellipse 135% 100% at 100% 0%,#000 52%,rgba(0,0,0,.6) 72%,transparent 92%);mask-composite:intersect}
+  .paint.boat{bottom:0;left:0;margin:0;transform:translate(-6%,6%);
+    -webkit-mask-image:linear-gradient(to top,transparent 0%,#000 18%),radial-gradient(ellipse 100% 100% at 0% 100%,#000 46%,rgba(0,0,0,.55) 68%,transparent 88%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to top,transparent 0%,#000 18%),radial-gradient(ellipse 100% 100% at 0% 100%,#000 46%,rgba(0,0,0,.55) 68%,transparent 88%);mask-composite:intersect}
+  }
 </style>
 </head>
 <body>
 <nav class="nav" aria-label="Main"><a href="house.html">The House</a><a href="membership.html" aria-current="page">Membership</a></nav>
+<div class="page">
 <header>
   <a href="index.html" aria-label="Maison Baer">
     <img class="wappen" src="img/maison-baer-wappen.webp" alt="" width="344" height="500">
     <span class="wm">Maison Baer</span>
   </a>
 </header>
+<img class="paint church" src="img/maison-baer-6-augustinergasse.webp" alt="Augustinergasse in Zürich, painted" width="880" height="1100" decoding="async">
 
 <main>
   <p class="sc lead">membership</p>
@@ -66,6 +84,7 @@ body{position:relative}
   </div>
   <p class="cta"><a href="mailto:hans@mrbaer.ch?subject=Request%20Membership&amp;body=Name%3A%0D%0AIntroduced%20by%3A%0D%0ACity%3A%0D%0A">Request membership</a></p>
 </main>
+</div>
 
 <footer><span>© Maison Baer 2026</span><a href="legal.html">Legal Notice</a></footer>
 
