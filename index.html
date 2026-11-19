@@ -95,6 +95,15 @@ body{position:relative}
 @font-face{font-family:'Monsieur La Doulaise';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/monsieur-la-doulaise-latin-400-normal.woff2) format('woff2')}
 .prose p.sig{display:block;margin:clamp(34px,6.6vh,60px) auto 0;font-family:'Monsieur La Doulaise',cursive;font-weight:400;font-size:clamp(36px,4.8vh,46px);line-height:1;color:var(--ink);opacity:.92;white-space:nowrap}
 @media (min-width:1025px) and (max-height:720px){.prose p.sig{margin-top:22px}}
+/* the text settles in gently on every page; coat of arms, name, menu and footer stay put */
+@keyframes txt-in{from{opacity:0}}
+main h1:not(:first-of-type),.lede,main>h1,.prose>*,main section,.cta{animation:txt-in 1.3s ease both}
+.lede,main>h1{animation-delay:.1s}
+.prose>*:nth-child(1){animation-delay:.25s}.prose>*:nth-child(2){animation-delay:.45s}.prose>*:nth-child(3){animation-delay:.65s}.prose>*:nth-child(4){animation-delay:.85s}.prose>*:nth-child(5){animation-delay:1.05s}.prose>*:nth-child(6){animation-delay:1.25s}
+main section:nth-of-type(1){animation-delay:.25s}main section:nth-of-type(2){animation-delay:.4s}main section:nth-of-type(3){animation-delay:.55s}main section:nth-of-type(4){animation-delay:.7s}main section:nth-of-type(5){animation-delay:.85s}
+.cta{animation-delay:1.05s}
+.hero h1:not(.lede){animation:none}
+@media (prefers-reduced-motion:reduce){.lede,main>h1,.prose>*,main section,.cta{animation:none}}
 </style>
 </head>
 <body>
