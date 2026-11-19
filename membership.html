@@ -111,6 +111,7 @@ html:has(dialog.req[open]){overflow:hidden}
       <input type="hidden" name="_subject" value="Request an Introduction">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.maisonbaer.ch/membership.html#thanks">
       <div hidden><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
       <label for="f-name">Name</label><input id="f-name" name="Name" autocomplete="name" required autofocus>
       <label for="f-mail">E-mail</label><input id="f-mail" type="email" name="email" autocomplete="email" required>
@@ -144,9 +145,6 @@ ps.forEach(function(p){io.observe(p)})})();
   const status = form.querySelector('.msg');
   const confirmation = dialog.querySelector('.done');
   const confirmationTitle = document.getElementById('req-done-title');
-  const endpoint = new URL(form.action);
-  endpoint.pathname = '/ajax' + endpoint.pathname;
-
   openButton.addEventListener('click', () => {
     dialog.showModal();
     if (!confirmation.hidden) confirmationTitle.focus();
@@ -170,48 +168,31 @@ ps.forEach(function(p){io.observe(p)})})();
     dialog.setAttribute('aria-labelledby', 'req-title');
   });
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    if (submitButton.disabled) return;
-
-    const fields = new FormData(form);
+  form.addEventListener('submit', (event) => {
     const trimmedName = name.value.trim();
     if (!trimmedName) {
+      event.preventDefault();
       name.setCustomValidity('Please enter your name.');
       name.reportValidity();
       return;
     }
-    fields.set(name.name, trimmedName);
-    fields.set('Introduced by', fields.get('Introduced by').trim());
-
+    name.value = trimmedName;
+    const intro = form.elements['Introduced by'];
+    intro.value = intro.value.trim();
     submitButton.disabled = true;
     status.textContent = 'Sending…';
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: fields,
-        signal: controller.signal
-      });
-      if (!response.ok) throw new Error('Form submission failed');
-      const result = await response.json();
-      if (String(result.success) !== 'true') throw new Error('Form submission failed');
-
-      form.reset();
-      status.textContent = '';
-      form.hidden = true;
-      confirmation.hidden = false;
-      dialog.setAttribute('aria-labelledby', confirmationTitle.id);
-      if (dialog.open) confirmationTitle.focus();
-    } catch {
-      status.textContent = 'We could not confirm your request. Please try again in a moment.';
-    } finally {
-      clearTimeout(timeout);
-      submitButton.disabled = false;
-    }
   });
+
+  /* back from FormSubmit: show the thank-you note */
+  if (location.hash === '#thanks') {
+    history.replaceState(null, '', location.pathname);
+    form.hidden = true;
+    confirmation.hidden = false;
+    dialog.setAttribute('aria-labelledby', confirmationTitle.id);
+    dialog.showModal();
+    confirmationTitle.focus();
+  }
+  window.addEventListener('pageshow', () => { submitButton.disabled = false; status.textContent = ''; });
 })();
 </script>
 </body>

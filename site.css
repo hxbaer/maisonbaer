@@ -43,3 +43,4 @@ footer{border-top:1px solid var(--line);padding:30px 24px calc(30px + env(safe-a
 .nav{view-transition-name:nav}footer{view-transition-name:foot}img.wappen{view-transition-name:wappen}.hero h1,.wm{view-transition-name:wordmark}
 @media (prefers-reduced-motion:reduce){.paint{animation:none}@view-transition{navigation:none}}
 img.wappen{filter:drop-shadow(0 1px 0 rgba(255,253,246,.85)) drop-shadow(0 -1px 0 rgba(31,51,41,.16)) drop-shadow(0 2px 2px rgba(31,51,41,.10))}
+.req .done h2:focus{outline:none}
