@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maison Baer – Private Dinner Club in Zürich, Switzerland</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ebe4d8">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="site.css">
+<style>
+:root{--ink2:#4a5a4f;--gold:#a8823d}
+body{font-size:1.15rem;line-height:1.56}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .3s}
+a:hover{border-color:var(--ink)}
+.sc{font-family:var(--sc);font-weight:500;letter-spacing:.34em;text-transform:lowercase;font-size:.92rem;color:var(--gold)}
+header{display:flex;justify-content:center;padding:30px 24px 0}
+header .brand{border:0;display:flex;flex-direction:column;align-items:center;gap:26px;color:var(--ink)}
+.wappen{display:block;height:clamp(130px,19.5vh,175px);width:auto;image-rendering:-webkit-optimize-contrast}
+.wm{font-family:var(--disp);font-weight:500;font-size:1.2rem;letter-spacing:.34em;padding-left:.34em;white-space:nowrap;text-transform:uppercase;line-height:1}
+main{width:min(642px,100%);margin:0 auto;padding:clamp(28px,4.5vh,40px) 24px clamp(40px,7vh,90px)}
+h1{font-weight:400;font-size:clamp(1.6rem,3vw,1.9rem);line-height:1.1;text-align:center;margin:0 0 clamp(26px,4vh,52px)}
+.lead{text-align:center}
+section{padding:30px 0;border-top:1px solid var(--line)}
+section:last-of-type{border-bottom:1px solid var(--line)}
+h2{font-family:var(--sc);font-weight:500;text-transform:lowercase;letter-spacing:.26em;font-size:1rem;color:var(--gold);margin-bottom:12px}
+p{color:var(--ink)}
+p+p{margin-top:12px}
+address{font-style:normal;color:var(--ink)}
+.back{text-align:center;margin-top:clamp(44px,7vh,64px)}
+.back a{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.3em;font-size:.95rem;border:1px solid var(--ink);padding:14px 32px;display:inline-block;color:var(--ink);transition:background .4s,color .4s}
+.back a:hover{background:var(--ink);color:var(--paper)}
+.prose p{color:var(--ink);font-size:1.15rem;line-height:1.56;text-align:center;text-wrap:balance}
+.prose p+p{margin-top:1.56em}
+.prose em{font-style:italic}
+.cta{text-align:center;margin-top:clamp(24px,4vh,56px)}
+.cta a{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.26em;font-size:.92rem;border:1px solid var(--ink);padding:clamp(15px,2.5vh,20px) 0;width:min(330px,100%);display:inline-block;color:var(--ink);transition:background .4s,color .4s}
+.cta a:hover{background:var(--ink);color:var(--paper)}
+/* a painted view of Zürich that bleeds out of the corners into the paper, with no visible edge */
+.paint{display:block;width:min(420px,100%);height:auto;margin:24px auto 0;mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 calc(45% * var(--p)),transparent calc(100% * var(--p)));
+  mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 calc(45% * var(--p)),transparent calc(100% * var(--p)))}
+.paint.boat{margin-top:40px}
+@media (min-width:1025px){
+  .page{position:relative;overflow:hidden}
+  header,main{position:relative;z-index:1}
+  .paint{position:absolute;z-index:0;width:27vw;max-width:440px;margin:0;pointer-events:none}
+  .paint.church{top:0;right:0;transform:translate(17%,-6%);
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 24%),radial-gradient(ellipse 135% 100% at 100% 0%,#000 calc(52% * var(--p)),rgba(0,0,0,.6) calc(72% * var(--p)),transparent calc(92% * var(--p)));-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right,transparent 0%,#000 24%),radial-gradient(ellipse 135% 100% at 100% 0%,#000 calc(52% * var(--p)),rgba(0,0,0,.6) calc(72% * var(--p)),transparent calc(92% * var(--p)));mask-composite:intersect}
+  .paint.boat{bottom:0;left:0;margin:0;transform:translate(-6%,6%);
+    -webkit-mask-image:linear-gradient(to top,transparent 0%,#000 18%),radial-gradient(ellipse 100% 100% at 0% 100%,#000 calc(46% * var(--p)),rgba(0,0,0,.55) calc(68% * var(--p)),transparent calc(88% * var(--p)));-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to top,transparent 0%,#000 18%),radial-gradient(ellipse 100% 100% at 0% 100%,#000 calc(46% * var(--p)),rgba(0,0,0,.55) calc(68% * var(--p)),transparent calc(88% * var(--p)));mask-composite:intersect}
+  }
+.page{flex:1 0 auto}
+@media (min-width:1025px) and (max-height:760px){.prose p+p{margin-top:1.1em}}
+/* the paintings spread out of their corner like wet paint, once, when the page opens */
+@property --p{syntax:'<number>';inherits:false;initial-value:1}
+@keyframes bleed{from{--p:.12;opacity:.15;filter:blur(5px) saturate(.35)}60%{opacity:1}to{--p:1;opacity:1;filter:none}}
+.paint{animation:bleed 3.2s cubic-bezier(.22,.61,.36,1) .25s both;animation-play-state:paused}.paint.seen{animation-play-state:running}
+/* request form: opens in a small window over the page */
+dialog.req{margin:auto;border:1px solid var(--ink);padding:0;width:min(460px,calc(100vw - 32px));max-height:calc(100svh - 24px);overflow:auto;color:var(--ink);background-color:var(--paper);background-image:inherit;box-shadow:0 30px 80px rgba(31,51,41,.18)}
+dialog.req::backdrop{background:rgba(235,228,216,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+dialog.req[open]{animation:req-in .45s ease both}
+@keyframes req-in{from{opacity:0;transform:translateY(12px)}}
+.req form,.req .done{padding:clamp(22px,4.6vh,44px) clamp(22px,6vw,48px) clamp(18px,3.6vh,36px);text-align:center}
+.req h2{font-family:var(--disp);font-weight:500;font-size:1.2rem;letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;margin:0 0 clamp(14px,3.2vh,30px);color:var(--ink)}
+.req label{display:block;text-align:left;font-family:var(--sc);font-weight:500;text-transform:lowercase;letter-spacing:.22em;font-size:.8rem;margin:0 0 2px}
+.req input,.req textarea{display:block;width:100%;font:inherit;font-size:1.05rem;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:4px 0 6px;margin:0 0 clamp(10px,2.4vh,24px);border-radius:0;outline:none;transition:border-color .3s}
+.req input:focus,.req textarea:focus{border-color:var(--ink)}
+.req textarea{resize:none;height:clamp(40px,8vh,84px)}
+.req button[type=submit]{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.26em;font-size:.92rem;border:1px solid var(--ink);padding:clamp(12px,2vh,16px) 0;width:100%;background:transparent;color:var(--ink);cursor:pointer;transition:background .4s,color .4s;margin-top:4px}
+.req button[type=submit]:hover{background:var(--ink);color:var(--paper)}
+.req button[disabled]{opacity:.5;cursor:default}
+.req .x{position:absolute;top:12px;right:14px;border:0;background:none;font:400 1.6rem/1 var(--disp);color:var(--ink);cursor:pointer;padding:6px 8px}
+.req .msg{font-size:.95rem;margin-top:8px;min-height:1.2em}
+.req .done p{margin:0 0 10px}
+.cta button{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.26em;font-size:.92rem;border:1px solid var(--ink);padding:clamp(15px,2.5vh,20px) 0;width:min(330px,100%);background:transparent;color:var(--ink);cursor:pointer;transition:background .4s,color .4s}
+.cta button:hover{background:var(--ink);color:var(--paper)}
+html:has(dialog.req[open]){overflow:hidden}
+@media (min-width:1025px) and (max-height:720px){h1{font-size:1.75rem;margin-bottom:12px}main{padding-top:18px;padding-bottom:24px}}
+@media (min-width:1025px){.paint.church{transform:translate(8%,-7%)}}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main"><a href="index.html">The Club</a><a href="history.html">History</a><a href="membership.html" aria-current="page">Membership</a></nav>
+<div class="page">
+<header>
+  <div class="brand">
+    <img class="wappen" src="img/maison-baer-wappen.webp" alt="" width="344" height="500">
+    <span class="wm">Maison Baer</span>
+  </div>
+</header>
+<img class="paint church" src="img/maison-baer-7-limmat.webp?v=5" alt="The Limmat with the Zunfthaus zur Meisen and St. Peter in Zürich, painted" width="880" height="1100" decoding="async">
+
+<main>
+  <h1>Membership</h1>
+  <div class="prose">
+    <p>A new member is introduced by <em>two</em> who have already sat at the table. Requests made directly are read with care and answered personally.</p>
+    <p>Invitations are sent for each evening, a few weeks ahead.</p>
+  </div>
+  <p class="cta"><button type="button" id="open-req" aria-haspopup="dialog" aria-controls="req">Request an introduction</button></p>
+  <dialog class="req" id="req" aria-labelledby="req-title">
+    <button class="x" type="button" aria-label="Close" data-close>&times;</button>
+    <form id="req-form" action="https://formsubmit.co/hans@mrbaer.ch" method="POST">
+      <h2 id="req-title">Request an introduction</h2>
+      <input type="hidden" name="_subject" value="Request an Introduction">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <div hidden><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+      <label for="f-name">Name</label><input id="f-name" name="Name" autocomplete="name" required autofocus>
+      <label for="f-mail">E-mail</label><input id="f-mail" type="email" name="email" autocomplete="email" required>
+      <label for="f-intro">Introduced by</label><input id="f-intro" name="Introduced by">
+      <button type="submit">Send request</button>
+      <p class="msg" role="status"></p>
+    </form>
+    <div class="done" hidden>
+      <h2 id="req-done-title" tabindex="-1">Thank you</h2>
+      <p>You will hear from us.</p>
+    </div>
+  </dialog>
+</main>
+</div>
+
+<footer><span>Maison Baer · Zürich · MMXXVI</span><a href="legal.html">Legal Notice</a></footer>
+
+<script>
+/* start the paint effect only when a painting actually comes into view (matters on phones, where they sit below the text) */
+(function(){var ps=document.querySelectorAll('.paint');if(!('IntersectionObserver' in window)){ps.forEach(function(p){p.classList.add('seen')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target)}})},{threshold:.25});
+ps.forEach(function(p){io.observe(p)})})();
+</script>
+<script>
+(() => {
+  const dialog = document.getElementById('req');
+  const openButton = document.getElementById('open-req');
+  const form = document.getElementById('req-form');
+  const name = document.getElementById('f-name');
+  const submitButton = form.querySelector('button[type="submit"]');
+  const status = form.querySelector('.msg');
+  const confirmation = dialog.querySelector('.done');
+  const confirmationTitle = document.getElementById('req-done-title');
+  const endpoint = new URL(form.action);
+  endpoint.pathname = '/ajax' + endpoint.pathname;
+
+  openButton.addEventListener('click', () => {
+    dialog.showModal();
+    if (!confirmation.hidden) confirmationTitle.focus();
+  });
+
+  dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target !== dialog) return;
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right ||
+        event.clientY < bounds.top || event.clientY > bounds.bottom) {
+      dialog.close();
+    }
+  });
+
+  name.addEventListener('input', () => name.setCustomValidity(''));
+  dialog.addEventListener('close', () => {
+    if (dialog.open || confirmation.hidden) return;
+    confirmation.hidden = true;
+    form.hidden = false;
+    dialog.setAttribute('aria-labelledby', 'req-title');
+  });
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (submitButton.disabled) return;
+
+    const fields = new FormData(form);
+    const trimmedName = name.value.trim();
+    if (!trimmedName) {
+      name.setCustomValidity('Please enter your name.');
+      name.reportValidity();
+      return;
+    }
+    fields.set(name.name, trimmedName);
+    fields.set('Introduced by', fields.get('Introduced by').trim());
+
+    submitButton.disabled = true;
+    status.textContent = 'Sending…';
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: fields,
+        signal: controller.signal
+      });
+      if (!response.ok) throw new Error('Form submission failed');
+      const result = await response.json();
+      if (String(result.success) !== 'true') throw new Error('Form submission failed');
+
+      form.reset();
+      status.textContent = '';
+      form.hidden = true;
+      confirmation.hidden = false;
+      dialog.setAttribute('aria-labelledby', confirmationTitle.id);
+      if (dialog.open) confirmationTitle.focus();
+    } catch {
+      status.textContent = 'We could not confirm your request. Please try again in a moment.';
+    } finally {
+      clearTimeout(timeout);
+      submitButton.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
