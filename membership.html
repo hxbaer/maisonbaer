@@ -80,25 +80,26 @@ footer a{border-bottom:1px solid transparent;transition:border-color .3s}footer 
 .nav{view-transition-name:nav}footer{view-transition-name:foot}img.wappen{view-transition-name:wappen}.hero h1,.wm{view-transition-name:wordmark}
 @media (prefers-reduced-motion:reduce){.paint{animation:none}@view-transition{navigation:none}}
 /* request form: opens in a small window over the page */
-dialog.req{margin:auto;border:1px solid var(--ink);padding:0;width:min(460px,calc(100vw - 32px));max-height:calc(100svh - 32px);overflow:auto;color:var(--ink);background-color:var(--paper);background-image:inherit;box-shadow:0 30px 80px rgba(31,51,41,.18)}
+dialog.req{margin:auto;border:1px solid var(--ink);padding:0;width:min(460px,calc(100vw - 32px));max-height:calc(100svh - 24px);overflow:hidden;color:var(--ink);background-color:var(--paper);background-image:inherit;box-shadow:0 30px 80px rgba(31,51,41,.18)}
 dialog.req::backdrop{background:rgba(235,228,216,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 dialog.req[open]{animation:req-in .45s ease both}
 @keyframes req-in{from{opacity:0;transform:translateY(12px)}}
-.req form,.req .done{padding:44px clamp(24px,6vw,48px) 40px;text-align:center}
-.req h2{font-family:var(--disp);font-weight:500;font-size:1.2rem;letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;margin:0 0 30px;color:var(--ink)}
-.req label{display:block;text-align:left;font-family:var(--sc);font-weight:500;text-transform:lowercase;letter-spacing:.22em;font-size:.8rem;margin:0 0 6px}
-.req input,.req textarea{display:block;width:100%;font:inherit;font-size:1.05rem;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:6px 0 8px;margin:0 0 24px;border-radius:0;outline:none;transition:border-color .3s}
+.req form,.req .done{padding:clamp(22px,4.6vh,44px) clamp(22px,6vw,48px) clamp(18px,3.6vh,36px);text-align:center}
+.req h2{font-family:var(--disp);font-weight:500;font-size:1.2rem;letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;margin:0 0 clamp(14px,3.2vh,30px);color:var(--ink)}
+.req label{display:block;text-align:left;font-family:var(--sc);font-weight:500;text-transform:lowercase;letter-spacing:.22em;font-size:.8rem;margin:0 0 2px}
+.req input,.req textarea{display:block;width:100%;font:inherit;font-size:1.05rem;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:4px 0 6px;margin:0 0 clamp(10px,2.4vh,24px);border-radius:0;outline:none;transition:border-color .3s}
 .req input:focus,.req textarea:focus{border-color:var(--ink)}
-.req textarea{resize:vertical;min-height:84px}
+.req textarea{resize:none;height:clamp(40px,8vh,84px)}
 .req .hp{position:absolute;left:-9999px}
-.req button[type=submit]{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.3em;font-size:.85rem;border:1px solid var(--ink);padding:16px 0;width:100%;background:transparent;color:var(--ink);cursor:pointer;transition:background .4s,color .4s;margin-top:6px}
+.req button[type=submit]{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.3em;font-size:.85rem;border:1px solid var(--ink);padding:clamp(12px,2vh,16px) 0;width:100%;background:transparent;color:var(--ink);cursor:pointer;transition:background .4s,color .4s;margin-top:4px}
 .req button[type=submit]:hover{background:var(--ink);color:var(--paper)}
 .req button[disabled]{opacity:.5;cursor:default}
 .req .x{position:absolute;top:12px;right:14px;border:0;background:none;font:400 1.6rem/1 var(--disp);color:var(--ink);cursor:pointer;padding:6px 8px}
-.req .msg{font-size:.95rem;margin-top:16px;min-height:1.2em}
+.req .msg{font-size:.95rem;margin-top:8px;min-height:1.2em}
 .req .done p{margin:0 0 10px}
 .cta button{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.3em;font-size:.85rem;border:1px solid var(--ink);padding:clamp(15px,2.5vh,20px) 0;width:min(330px,100%);background:transparent;color:var(--ink);cursor:pointer;transition:background .4s,color .4s}
 .cta button:hover{background:var(--ink);color:var(--paper)}
+html:has(dialog.req[open]){overflow:hidden}
 </style>
 </head>
 <body>
@@ -132,7 +133,7 @@ dialog.req[open]{animation:req-in .45s ease both}
       <label for="f-mail">E-mail</label><input id="f-mail" type="email" name="email" autocomplete="email" required>
       <label for="f-intro">Introduced by</label><input id="f-intro" name="Introduced by">
       <label for="f-city">City</label><input id="f-city" name="City" autocomplete="address-level2">
-      <label for="f-note">A few words</label><textarea id="f-note" name="Message" rows="3"></textarea>
+      <label for="f-note">A few words</label><textarea id="f-note" name="Message" rows="2"></textarea>
       <button type="submit">Send request</button>
       <p class="msg" role="status" aria-live="polite"></p>
     </form>
