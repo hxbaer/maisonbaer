@@ -100,10 +100,11 @@ dialog.req[open]{animation:req-in .45s ease both}
 .cta button{font-family:var(--sc);font-weight:600;text-transform:lowercase;letter-spacing:.3em;font-size:.85rem;border:1px solid var(--ink);padding:clamp(15px,2.5vh,20px) 0;width:min(330px,100%);background:transparent;color:var(--ink);cursor:pointer;transition:background .4s,color .4s}
 .cta button:hover{background:var(--ink);color:var(--paper)}
 html:has(dialog.req[open]){overflow:hidden}
+@media (max-width:400px){.nav{gap:14px;letter-spacing:.14em;font-size:.84rem;padding-left:10px;padding-right:10px}}
 </style>
 </head>
 <body>
-<nav class="nav" aria-label="Main"><a href="house.html">The House</a><a href="membership.html" aria-current="page">Membership</a></nav>
+<nav class="nav" aria-label="Main"><a href="index.html">The Club</a><a href="house.html">The House</a><a href="membership.html" aria-current="page">Membership</a></nav>
 <div class="page">
 <header>
   <a href="index.html" aria-label="Maison Baer">
@@ -157,13 +158,13 @@ ps.forEach(function(p){io.observe(p)})})();
 <script>
 /* membership request: a small window over the page, sent straight to the house by e-mail */
 (function(){var d=document.getElementById('req'),f=document.getElementById('req-form'),m=f.querySelector('.msg'),done=d.querySelector('.done');
-document.getElementById('open-req').addEventListener('click',function(){if(d.showModal)d.showModal();else location.href='mailto:hans@mrbaer.ch?subject=Request%20Membership';setTimeout(function(){document.getElementById('f-name').focus()},60)});
+document.getElementById('open-req').addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');setTimeout(function(){document.getElementById('f-name').focus()},60)});
 d.addEventListener('click',function(e){if(e.target===d||e.target.hasAttribute('data-close'))d.close()});
 f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button[type=submit]');b.disabled=true;m.textContent='Sending…';
 fetch('https://formsubmit.co/ajax/hans@mrbaer.ch',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
 .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)!=='true')throw j;})})
 .then(function(){f.hidden=true;done.hidden=false;f.reset()})
-.catch(function(){m.innerHTML='Something went wrong. Please write to <a href="mailto:hans@mrbaer.ch?subject=Request%20Membership">hans@mrbaer.ch</a>.'})
+.catch(function(){m.textContent='The request could not be sent. Please try again a little later.'})
 .finally(function(){b.disabled=false});});
 d.addEventListener('close',function(){if(!done.hidden){setTimeout(function(){f.hidden=false;done.hidden=true;m.textContent=''},300)}});})();
 </script>
