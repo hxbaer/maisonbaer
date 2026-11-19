@@ -6,10 +6,11 @@ Live (GitHub Pages): https://hxbaer.github.io/maisonbaer/
 
 ## Files
 
-- `index.html`: the house page (ivory paper, Baer coat of arms). One self-contained file: HTML, CSS and JS.
+- `index.html`: the house page (ivory paper, Baer coat of arms).
 - `history.html`: History (name, arms, why the club exists). `house.html` forwards there.
 - `membership.html`: Membership (introduction by two guests, request button).
 - `legal.html`: Legal Notice in English.
+- `site.css`: shared palette, paper texture, navigation, footer and page transitions.
 - `img/`: coat of arms and four watercolours: the Limmat and Grossmünster from above and swans and boats on Lake Zurich (home, from Unsplash photos by Henrique Ferreira and Olesia Libra), a courtyard with a fountain (History, own photo), the Limmat with St. Peter (Membership, from an Unsplash photo by Tomi Blasic). Unsplash photos are used under the Unsplash License.
 - `tools/watercolour-painterly.py`: the looser, more saturated watercolour filter (closer to Maison Estelle's illustrations) used for the current paintings.
 - `tools/watercolour.py`: the Python/OpenCV filter that turned the photos into the paintings.
