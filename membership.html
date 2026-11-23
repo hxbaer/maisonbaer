@@ -15,6 +15,15 @@ layout: null
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="{{ d.seo.title | escape }}">
+<meta property="og:description" content="{{ d.seo.description | escape }}">
+<meta property="og:url" content="https://www.maisonbaer.ch/membership.html">
+<meta property="og:site_name" content="Maison Baer">
+<meta property="og:image" content="https://www.maisonbaer.ch/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="site.css">
 <style>
@@ -119,9 +128,9 @@ html:has(dialog.req[open]){overflow:hidden}
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://www.maisonbaer.ch/membership.html#thanks">
       <div hidden><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
-      <label for="f-name">Name</label><input id="f-name" name="Name" autocomplete="name" required autofocus>
+      <label for="f-name">Name</label><input id="f-name" type="text" name="Name" autocomplete="name" required autofocus>
       <label for="f-mail">E-mail</label><input id="f-mail" type="email" name="email" autocomplete="email" required>
-      <label for="f-intro">Introduced by</label><input id="f-intro" name="Introduced by">
+      <label for="f-intro">Introduced by</label><input id="f-intro" type="text" name="Introduced by">
       <button type="submit">Send request</button>
       <p class="msg" role="status"></p>
     </form>

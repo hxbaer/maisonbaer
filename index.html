@@ -18,6 +18,8 @@ layout: null
 <meta property="og:title" content="{{ d.seo.title | escape }}">
 <meta property="og:description" content="{{ d.seo.share_description | escape }}">
 <meta property="og:image" content="https://www.maisonbaer.ch{{ d.seo.share_image }}">
+<meta property="og:url" content="https://www.maisonbaer.ch/">
+<meta property="og:site_name" content="Maison Baer">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
@@ -93,7 +95,7 @@ main{display:block;flex:1 0 auto}
 {%- for p in d.paragraphs %}
   <p>{{ p }}</p>
 {%- endfor %}
-  <p class="sig" aria-label="Maison Baer">Maison Baer</p>
+  <p class="sig">Maison Baer</p>
 </section>
   <img class="paint boat" src="{{ d.painting_bottom.image }}" alt="{{ d.painting_bottom.alt | escape }}" width="880" height="1100" loading="lazy" decoding="async">
 </main>

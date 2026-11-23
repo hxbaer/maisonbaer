@@ -1,15 +1,15 @@
 # Seite "Membership" von maisonbaer.ch. Bearbeitung über Pages CMS (app.pagescms.org).
-heading: "Membership"
+heading: Membership
 paragraphs:
-  - "A new member is introduced by <em>two</em> who have already sat at the table. Requests made directly are read with care and answered personally."
-  - "Invitations are sent for each evening, a few weeks ahead."
-button: "Request a seat"
-request_email: "membership@maisonbaer.ch"
-thanks_title: "Thank you"
-thanks_text: "You will hear from us."
+- A new member is introduced by <em>two</em> who have already sat at the table. Requests made directly are read with care and answered personally.
+- Invitations are sent for each evening, a few weeks ahead.
+button: Request a seat
+request_email: membership@maisonbaer.ch
+thanks_title: Thank you
+thanks_text: You will hear from us.
 painting:
-  image: "/img/maison-baer-7-limmat.webp"
-  alt: "The Limmat with the Zunfthaus zur Meisen and St. Peter in Zürich, painted"
+  image: /img/maison-baer-7-limmat.webp
+  alt: The Limmat with the Zunfthaus zur Meisen and St. Peter in Zürich, painted
 seo:
-  title: "Maison Baer – Private Dinner Club in Zürich, Switzerland"
-  description: "Membership at Maison Baer is by introduction. Request a seat at the table of this private dinner club in Zürich."
+  title: Membership · Maison Baer – Private Dinner Club in Zürich
+  description: Membership at Maison Baer is by introduction. Request a seat at the table of this private dinner club in Zürich.

@@ -1,0 +1,5 @@
+# Seiten in der Sitemap (für Google). Das Datum setzt GitHub bei jedem Speichern automatisch.
+pages:
+- /
+- /history.html
+- /membership.html
