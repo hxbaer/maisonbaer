@@ -1,0 +1,143 @@
+# Pages CMS – https://app.pagescms.org (Login mit GitHub, Repo hxbaer/maisonbaer wählen)
+media:
+  input: img
+  output: /img
+  extensions:
+    - webp
+    - jpg
+    - jpeg
+    - png
+content:
+  - name: club
+    label: The Club (Startseite)
+    type: file
+    path: _data/club.yml
+    fields:
+      - name: heading
+        label: Überschrift
+        type: string
+      - name: paragraphs
+        label: Absätze
+        type: text
+        list: true
+        description: Einfaches HTML erlaubt, z.B. <em>kursiv</em>.
+      - name: painting_top
+        label: Aquarell oben rechts
+        type: object
+        fields:
+          - name: image
+            label: Aquarell
+            type: image
+            description: Hochformat 880 × 1100 px, WebP. Der Rand wird automatisch ins Papier ausgeblendet.
+          - name: alt
+            label: Bildbeschreibung (Alt-Text)
+            type: string
+      - name: painting_bottom
+        label: Aquarell unten links
+        type: object
+        fields:
+          - name: image
+            label: Aquarell
+            type: image
+            description: Hochformat 880 × 1100 px, WebP. Der Rand wird automatisch ins Papier ausgeblendet.
+          - name: alt
+            label: Bildbeschreibung (Alt-Text)
+            type: string
+      - name: seo
+        label: SEO & Teilen
+        type: object
+        fields:
+          - name: title
+            label: Seitentitel
+            type: string
+          - name: description
+            label: Beschreibung für Google
+            type: text
+          - name: share_description
+            label: Beschreibung in Link-Vorschauen
+            type: string
+          - name: share_image
+            label: Pfad zum Vorschaubild
+            type: string
+            description: 1200 × 630 px; Standard /og.jpg
+  - name: history
+    label: History
+    type: file
+    path: _data/history.yml
+    fields:
+      - name: heading
+        label: Überschrift
+        type: string
+      - name: paragraphs
+        label: Absätze
+        type: text
+        list: true
+        description: Einfaches HTML erlaubt, z.B. <em>kursiv</em>.
+      - name: painting
+        label: Aquarell
+        type: object
+        fields:
+          - name: image
+            label: Aquarell
+            type: image
+            description: Hochformat 880 × 1100 px, WebP. Der Rand wird automatisch ins Papier ausgeblendet.
+          - name: alt
+            label: Bildbeschreibung (Alt-Text)
+            type: string
+      - name: seo
+        label: SEO
+        type: object
+        fields:
+          - name: title
+            label: Seitentitel
+            type: string
+          - name: description
+            label: Beschreibung für Google
+            type: text
+  - name: membership
+    label: Membership
+    type: file
+    path: _data/membership.yml
+    fields:
+      - name: heading
+        label: Überschrift
+        type: string
+      - name: paragraphs
+        label: Absätze
+        type: text
+        list: true
+        description: Einfaches HTML erlaubt, z.B. <em>kursiv</em>.
+      - name: button
+        label: Button- und Formulartitel
+        type: string
+      - name: request_email
+        label: Empfänger der Anfragen
+        type: string
+        description: Läuft über FormSubmit. Eine neue Adresse muss nach der ersten Anfrage per Bestätigungsmail freigeschaltet werden.
+      - name: thanks_title
+        label: Danke-Titel
+        type: string
+      - name: thanks_text
+        label: Danke-Text
+        type: string
+      - name: painting
+        label: Aquarell oben rechts
+        type: object
+        fields:
+          - name: image
+            label: Aquarell
+            type: image
+            description: Hochformat 880 × 1100 px, WebP. Der Rand wird automatisch ins Papier ausgeblendet.
+          - name: alt
+            label: Bildbeschreibung (Alt-Text)
+            type: string
+      - name: seo
+        label: SEO
+        type: object
+        fields:
+          - name: title
+            label: Seitentitel
+            type: string
+          - name: description
+            label: Beschreibung für Google
+            type: text

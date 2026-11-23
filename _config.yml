@@ -1,0 +1,9 @@
+# Jekyll-Konfiguration. GitHub Pages baut die Seite damit automatisch,
+# die Inhalte kommen aus _data/ und werden in Pages CMS bearbeitet.
+title: Maison Baer
+url: https://www.maisonbaer.ch
+exclude:
+  - README.md
+  - tools
+  - Gemfile
+  - Gemfile.lock

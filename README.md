@@ -15,6 +15,10 @@ Live (GitHub Pages): https://www.maisonbaer.ch/
 - `tools/watercolour-painterly.py`: the looser, more saturated watercolour filter (closer to Maison Estelle's illustrations) used for the current paintings.
 - `tools/watercolour.py`: the Python/OpenCV filter that turned the photos into the paintings.
 
+## Editing (Pages CMS)
+
+Texts, paintings and SEO fields live in `_data/` (`club.yml`, `history.yml`, `membership.yml`) and are edited in Pages CMS: https://app.pagescms.org (sign in with GitHub, choose this repository). The fields are defined in `.pages.yml`. GitHub Pages builds the HTML pages with Jekyll; design and layout stay in the `.html` files.
+
 ## Notes
 
 - The password page has been removed; the site opens directly on the house page.

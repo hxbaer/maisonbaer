@@ -1,0 +1,17 @@
+# Startseite "The Club" von maisonbaer.ch. Bearbeitung über Pages CMS (app.pagescms.org).
+heading: "The Club"
+paragraphs:
+  - "One long evening, a menu that is never served twice, and a conversation that decides for itself when it ends."
+  - "The idea is simple: to bring together people who would rather listen than impress."
+  - "Membership is offered <em>on request</em>, through those already at the table."
+painting_top:
+  image: "/img/maison-baer-11-limmat-aerial.webp"
+  alt: "The Limmat, the Grossmünster and the lake from above, painted"
+painting_bottom:
+  image: "/img/maison-baer-13-lake-swans.webp"
+  alt: "Swans and boats on Lake Zurich, painted"
+seo:
+  title: "Maison Baer – Private Dinner Club in Zürich, Switzerland"
+  description: "Maison Baer is a private dinner club in Zürich. One long evening, a menu never served twice, and a conversation that decides for itself when it ends."
+  share_description: "A Private Dinner Club"
+  share_image: "/og.jpg"

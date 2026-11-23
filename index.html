@@ -1,20 +1,23 @@
-<!DOCTYPE html>
+---
+layout: null
+---
+{% assign d = site.data.club %}<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Maison Baer – Private Dinner Club in Zürich, Switzerland</title>
+<title>{{ d.seo.title | escape }}</title>
 <meta name="robots" content="index,follow">
-<meta name="description" content="Maison Baer is a private dinner club in Zürich. One long evening, a menu never served twice, and a conversation that decides for itself when it ends.">
+<meta name="description" content="{{ d.seo.description | escape }}">
 <link rel="canonical" href="https://www.maisonbaer.ch/">
 <meta name="theme-color" content="#ebe4d8">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:title" content="Maison Baer – Private Dinner Club in Zürich, Switzerland">
-<meta property="og:description" content="A Private Dinner Club">
-<meta property="og:image" content="https://www.maisonbaer.ch/og.jpg">
+<meta property="og:title" content="{{ d.seo.title | escape }}">
+<meta property="og:description" content="{{ d.seo.share_description | escape }}">
+<meta property="og:image" content="https://www.maisonbaer.ch{{ d.seo.share_image }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
@@ -83,16 +86,16 @@ main{display:block;flex:1 0 auto}
   <img class="wappen" id="wappen" src="img/maison-baer-wappen.webp" alt="Maison Baer" width="344" height="500">
   <h1>Maison Baer</h1>
 </section>
-  <img class="paint church" src="img/maison-baer-11-limmat-aerial.webp?v=5" alt="The Limmat, the Grossmünster and the lake from above, painted" width="880" height="1100" decoding="async">
+  <img class="paint church" src="{{ d.painting_top.image }}" alt="{{ d.painting_top.alt | escape }}" width="880" height="1100" decoding="async">
 
 <section class="prose">
-  <h2 class="lede">The Club</h2>
-  <p>One long evening, a menu that is never served twice, and a conversation that decides for itself when it ends.</p>
-  <p>The idea is simple: to bring together people who would rather listen than impress.</p>
-  <p>Membership is offered <em>on request</em>, through those already at the table.</p>
+  <h2 class="lede">{{ d.heading | escape }}</h2>
+{%- for p in d.paragraphs %}
+  <p>{{ p }}</p>
+{%- endfor %}
   <p class="sig" aria-label="Maison Baer">Maison Baer</p>
 </section>
-  <img class="paint boat" src="img/maison-baer-13-lake-swans.webp" alt="Swans and boats on Lake Zurich, painted" width="880" height="1100" loading="lazy" decoding="async">
+  <img class="paint boat" src="{{ d.painting_bottom.image }}" alt="{{ d.painting_bottom.alt | escape }}" width="880" height="1100" loading="lazy" decoding="async">
 </main>
 
 <footer><span>Maison Baer · Zürich · MMXXVI</span><a href="legal.html">Legal Notice</a></footer>
