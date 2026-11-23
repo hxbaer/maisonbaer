@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+---
+layout: null
+---
+{% assign l = site.data.legal %}<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Maison Baer – Private Dinner Club in Zürich, Switzerland</title>
+<title>{{ l.seo_title | escape }}</title>
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#ebe4d8">
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -39,7 +42,7 @@ main{flex:1 0 auto}
 </style>
 </head>
 <body>
-<nav class="nav" aria-label="Main"><a href="index.html">The Club</a><a href="history.html">History</a><a href="membership.html">Membership</a></nav>
+{% include nav.html current="legal.html" %}
 <header>
   <div class="brand">
     <img class="wappen" src="img/maison-baer-wappen.webp" alt="" width="344" height="500">
@@ -48,41 +51,17 @@ main{flex:1 0 auto}
 </header>
 
 <main>
-  <h1>Legal Notice</h1>
+  <h1>{{ l.title | escape }}</h1>
+{%- for sec in l.sections %}
 
   <section>
-    <h2>Responsible for this website</h2>
-    <address>
-      Maison Baer<br>
-      Zürich, Switzerland<br>
-      <a href="mailto:membership@maisonbaer.ch">membership@maisonbaer.ch</a>
-    </address>
+    <h2>{{ sec.heading | escape }}</h2>{{ sec.body }}
   </section>
-
-  <section>
-    <h2>Disclaimer</h2>
-    <p>The content of this website has been compiled with care. No guarantee is given for its accuracy, completeness or timeliness. Liability claims for material or immaterial damage arising from access to, use of or reliance on the information published here are excluded, to the extent permitted by law.</p>
-  </section>
-
-  <section>
-    <h2>External links</h2>
-    <p>Links to third-party websites lie outside our responsibility. Access to and use of such websites is at the user's own risk.</p>
-  </section>
-
-  <section>
-    <h2>Copyright</h2>
-    <p>All texts, graphics and the emblem on this website belong to Maison Baer. Any reproduction requires prior written consent.</p>
-  </section>
-
-  <section>
-    <h2>Privacy</h2>
-    <p>This website does not use cookies, analytics or tracking. The website is hosted on GitHub Pages (GitHub, Inc., USA). When a page is loaded, GitHub processes technical data such as the IP address in order to deliver it and to keep the service secure. All fonts and images are served from this website itself; no data is passed to other services.</p>
-    <p>Membership requests sent through the form on this website are transmitted to Maison Baer by the form service FormSubmit (formsubmit.co). Personal data sent by form or e-mail is used solely to answer the request and is not passed on to third parties. Questions regarding your data can be sent to <a href="mailto:membership@maisonbaer.ch">membership@maisonbaer.ch</a>.</p>
-  </section>
+{%- endfor %}
 
 </main>
 
-<footer><span>Maison Baer · Zürich · MMXXVI</span><a href="legal.html" aria-current="page">Legal Notice</a></footer>
+{% include footer.html current="legal.html" %}
 
 </body>
 </html>

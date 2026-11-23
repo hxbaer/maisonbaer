@@ -141,3 +141,49 @@ content:
           - name: description
             label: Beschreibung für Google
             type: text
+  - name: site
+    label: Menü & Footer
+    type: file
+    path: _data/site.yml
+    fields:
+      - name: nav
+        label: Menüpunkte
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Text
+            type: string
+          - name: page
+            label: Seite
+            type: select
+            options:
+              values: [index.html, history.html, membership.html, legal.html]
+      - name: footer_text
+        label: Footer-Zeile
+        type: string
+      - name: legal_label
+        label: Text des Legal-Links im Footer
+        type: string
+  - name: legal
+    label: Legal Notice
+    type: file
+    path: _data/legal.yml
+    fields:
+      - name: title
+        label: Überschrift
+        type: string
+      - name: seo_title
+        label: Seitentitel (Browser-Tab)
+        type: string
+      - name: sections
+        label: Abschnitte
+        type: object
+        list: true
+        fields:
+          - name: heading
+            label: Überschrift
+            type: string
+          - name: body
+            label: Text
+            type: rich-text

@@ -92,7 +92,7 @@ html:has(dialog.req[open]){overflow:hidden}
 </style>
 </head>
 <body>
-<nav class="nav" aria-label="Main"><a href="index.html">The Club</a><a href="history.html">History</a><a href="membership.html" aria-current="page">Membership</a></nav>
+{% include nav.html current="membership.html" %}
 <div class="page">
 <header>
   <div class="brand">
@@ -133,7 +133,7 @@ html:has(dialog.req[open]){overflow:hidden}
 </main>
 </div>
 
-<footer><span>Maison Baer · Zürich · MMXXVI</span><a href="legal.html">Legal Notice</a></footer>
+{% include footer.html current="membership.html" %}
 
 <script>
 /* start the paint effect only when a painting actually comes into view (matters on phones, where they sit below the text) */

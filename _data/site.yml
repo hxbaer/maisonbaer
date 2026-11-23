@@ -1,0 +1,10 @@
+# Menü und Footer aller Seiten von maisonbaer.ch. Bearbeitung über Pages CMS (app.pagescms.org).
+nav:
+- label: The Club
+  page: index.html
+- label: History
+  page: history.html
+- label: Membership
+  page: membership.html
+footer_text: Maison Baer · Zürich · MMXXVI
+legal_label: Legal Notice

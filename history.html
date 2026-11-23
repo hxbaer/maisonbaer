@@ -71,7 +71,7 @@ address{font-style:normal;color:var(--ink)}
 </style>
 </head>
 <body>
-<nav class="nav" aria-label="Main"><a href="index.html">The Club</a><a href="history.html" aria-current="page">History</a><a href="membership.html">Membership</a></nav>
+{% include nav.html current="history.html" %}
 <div class="page">
 <header>
   <div class="brand">
@@ -91,7 +91,7 @@ address{font-style:normal;color:var(--ink)}
 <img class="paint boat" src="{{ d.painting.image }}" alt="{{ d.painting.alt | escape }}" width="880" height="1100" decoding="async">
 </div>
 
-<footer><span>Maison Baer · Zürich · MMXXVI</span><a href="legal.html">Legal Notice</a></footer>
+{% include footer.html current="history.html" %}
 
 <script>
 /* start the paint effect only when a painting actually comes into view (matters on phones, where they sit below the text) */

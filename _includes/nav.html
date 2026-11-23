@@ -1,0 +1,1 @@
+<nav class="nav" aria-label="Main">{% for n in site.data.site.nav %}<a href="{{ n.page }}"{% if n.page == include.current %} aria-current="page"{% endif %}>{{ n.label | escape }}</a>{% endfor %}</nav>
